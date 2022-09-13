@@ -1,7 +1,7 @@
 # Auto Deface Website (ADW)
 
 What is ADW?<br>
-Auto Deface Website (ADW) is a tool inspired by the WebDav tool and this tool can Deface 3600+ websites that have been targeted, but keep in mind that it's not easy.
+Auto Deface Website (ADW) is a tool inspired by the WebDav tool and this tool can hacking 3600+ websites that have been targeted, but keep in mind that it's not easy.
 **screnshoot:**
 ![1](https://raw.githubusercontent.com/wanzxploit/deface/main/adw.png)
 
