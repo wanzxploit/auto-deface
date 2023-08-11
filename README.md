@@ -126,6 +126,5 @@ chmod +x dev.sh
 - Facebook: [https://www.facebook.com/wanzxploit/](https://www.facebook.com/wanzxploit/)
 - YouTube: [https://www.youtube.com/c/WanzXploit](https://www.youtube.com/c/WanzXploit)
 - GitHub: [https://github.com/wanzxploit](https://github.com/wanzxploit)
-```
 
 Thank you for visiting!
