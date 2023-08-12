@@ -1,5 +1,7 @@
 #!/bin/bash
 
+termux-setup-storage
+clear
 echo -e "\033[1;34m
    ___       __           ___      ___            
   / _ |__ __/ /____  ____/ _ \\___ / _/__ ________ 
