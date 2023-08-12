@@ -1,6 +1,6 @@
 #!/bin/bash
 
-termux-setup-storage
+termux-setup-storage -y
 clear
 echo -e "\033[1;34m
    ___       __           ___      ___            
