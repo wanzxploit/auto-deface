@@ -9,7 +9,7 @@ Please place your HTML file in the Internal storage or a directory as shown belo
 ```
 /storage/emulated/0/file.html
 ```
-(Warning: if you don't use Android, please recode the script in the storage section to become your device's storage area.
+(Warning: if you don't use Android, please recode the script in the storage section to become your device's storage area.)
 
 
 **screnshoot:**
